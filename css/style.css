@@ -1,8 +1,16 @@
+:root{
+    --white: #fafafb;
+    --purple: #9a67ea;
+    --blue-light:#04d4c3;
+    --blue-dark:#2a73c2;
+    --green: #2c7b90;
+}
 
 div{
     text-align: center;
     margin: auto;
 }
+
 section{
     width: 100%;
     height: 100%;
@@ -11,25 +19,72 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
+    align-items: start;
+    margin-top: 20px;
 }
 
-.reloj{
+.bloque{
+    width: 100vb;
     display: inline-block;
-    color: #71767f;
-    background:#d1dae3;
-    font-family: sans-serif;
     font-weight: bold;
-    font-size: 20px;
-    border:  6px solid #cad3dc; 
-    border-radius: 4px;
-    padding: 50px;
+    font-size: 12px;
+    padding: 10px;
+    margin: 10px;
+}
+
+body{
+    background: linear-gradient(to bottom, var(--purple), var(--blue-light));
+    height: 100vh;
+}
+
+h1{
+    letter-spacing: 25px;
+}
+h1, p, h2, h3, span, h5{
+    font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+h5{
+    font-size: small;
+}
+
+h2, span{
+    font-size: small;
+    font-weight: bold;
+}
+h2{ 
+    margin-top: 15px;
+}
+.logo{
+    padding: 10px;
     margin: 20px;
+    color: rgb(34, 56, 75);
+    background:#d1dae3;
+    border:  3px solid #cad3dc; 
+    border-radius: 4px; 
     box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.5),
                 10px 10px 10px rgba(0, 0, 0, 0.1),
                 inset  -8px -8px 15px rgba(255, 255, 255, 0.5),
                 inset 10px 10px 10px rgba(0, 0, 0, 0.1);
 }
 
-body{
-    background-color: #d2d9e4;
+.degrade{
+    background: none;
+    background-repeat: no-repeat;
+}
+
+.perfil, h3,  p, h5{
+    letter-spacing: 3px;
+}
+
+
+/*Agregar rutina*/
+
+.agregar-rutina {
+
+}
+.agregar-rutina input {
+    
+}
+.agregar-rutina {
+    
 }
