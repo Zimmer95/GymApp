@@ -5,9 +5,10 @@ input = document.querySelector('#agregar-ejercicio'),
 botonEnter = document.querySelector('#botonEnter'),
 check = "fa-check-circle",
 uncheck = "fa-circle",
-lineThrough = "line-through",
-LIST=[];
-let id=0;
+lineThrough = "line-through";
+
+let id=0
+let LIST
 
 
 /*reloj*/
@@ -52,10 +53,12 @@ function tareaRealizada(element){
     element.classList.toggle(check)
     element.classList.toggle(uncheck)
     element.parentNode.querySelector(".text").classList.toggle(lineThrough)
+    LIST[element.id].realizado = LIST[element.id].realizado ? false : true
 }
 
 function tareaEliminada(element){
     element.parentNode.parentNode.removeChild(element.parentNode)
+    LIST[element.id].eliminado = true
 }
 
 botonEnter.addEventListener('click', () => {
@@ -69,9 +72,9 @@ botonEnter.addEventListener('click', () => {
             eliminado:false
         })
     }
+    localStorage.setItem('TODO', JSON.stringify(LIST))
     input.value=''
     id++
-    console.log(LIST)
 })
 
 document.addEventListener("keyup", function(event){
@@ -79,7 +82,14 @@ document.addEventListener("keyup", function(event){
         const tarea= input.value
     if(tarea){
         agregarTarea(tarea, id, false, false)
+        LIST.push({
+            nombre:tarea,
+            id:id,
+            realizado:false,
+            eliminado:false
+        })
     }
+    localStorage.setItem('TODO', JSON.stringify(LIST))
     input.value=''
     id++
     }
@@ -94,6 +104,7 @@ lista.addEventListener('click', function(event){
     }else if (elementData === "eliminado"){
         tareaEliminada(element)
     }
+    localStorage.setItem('TODO', JSON.stringify(LIST))
 })
 
 
@@ -101,3 +112,20 @@ setInterval(() =>{
     relojDigital()
 },1000);
 
+//obener datos del local storage
+
+let data = localStorage.getItem('TODO')
+if(data){
+    LIST=JSON.parse(data)
+    id = LIST.length
+    cargarLista(LIST)
+}else{
+    LIST = []
+    id=0
+}
+
+function cargarLista(DATA){
+    DATA.forEach(function(i){
+        agregarTarea(i.nombre,i.id,i.realizado,i.eliminado)
+    })
+}
