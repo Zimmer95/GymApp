@@ -1,3 +1,9 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 :root{
     --white: #fafafb;
     --purple: #9a67ea;
@@ -32,7 +38,7 @@ section{
 }
 
 body{
-    background: linear-gradient(to bottom, var(--purple), var(--blue-light));
+    background: linear-gradient(to bottom, var(--purple), var(--green));
     min-height: 100vh;
     background-repeat: no-repeat;
 }
@@ -49,13 +55,18 @@ h1, p, h2, h3, span, h5{
 h5{
     font-size: small;
 }
+
+p{
+    font-size: 10px;
+}
+
 h3{
     margin-bottom: 20px;
 }
 
 h2, span{
-    font-size: small;
-    font-weight: bold;
+    font-size: 15px;
+    margin: 5%;
 }
 
 .logo{
@@ -67,9 +78,7 @@ h2, span{
     border:  3px solid #cad3dc; 
     border-radius: 4px; 
     box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.5),
-                10px 10px 10px rgba(0, 0, 0, 0.1),
-                inset  -8px -8px 15px rgba(255, 255, 255, 0.5),
-                inset 10px 10px 10px rgba(0, 0, 0, 0.1);
+                10px 10px 10px rgba(0, 0, 0, 0.1)
 }
 
 .degrade{
@@ -83,16 +92,19 @@ h2, span{
 
 
 /*Agregar rutina*/
-
-.agregar-rutina input {
+.agregar-rutina{
     background-color: var(--white);
     border-radius: 15px;
-    height: 20px;
+    height: 70px;
     display: flex;
     align-items: center;
     padding: 10px;
-    margin: 10px 0;
     gap: 70px;
+    font-size: 15px;
+    color: var(--purple);
+}
+
+.agregar-rutina input {
     width: 100%;
     height: 100%;
     border-radius: 8px;
@@ -100,7 +112,55 @@ h2, span{
     background-color: var(--white);
 }
 
-.agregar-rutina {
-    font-size: 15px;
+.agregar-rutina input::placeholder{
+    font-size: 1.1rem;
+    color: var(--blue-dark);
+}
+
+.agregar-rutina i{
+    font-size: 50px;
+}
+
+.agregar-rutina i:hover{
+    transform: scale(1.1);
+}
+
+
+/*Lista de Rutinas*/
+
+.lista-rutinas h3{
+    color: var(--white);
+    margin-bottom: 20px;
+}
+
+.lista-rutinas li{
+    display: flex;
+    background: rgb(37, 35, 35) ;
+    border-radius: 15px;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px auto;
+    width: 90%;
+}
+.lista-rutinas i{
+    font-size: 25px;
+}
+
+.lista-rutinas i:hover{
+    color: var(--purple);
+    cursor: pointer;
+}
+.lista-rutinas >ul{
+    margin: 0;
+    padding: 0;
+}
+.lista-rutinas >ul p{
+    font-size: 1.2rem;
+}
+
+.line-through{
+    text-decoration: line-through;
     color: var(--purple);
 }
+
