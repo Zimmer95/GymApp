@@ -37,14 +37,24 @@ function relojDigital(){
 function agregarTarea(tarea, id, realizado, eliminado) {
 
     if(eliminado){return}
-    
+    let hora=new Date(),
+    horario= hora.toLocaleTimeString(),
+    dia= hora.getDate(),
+    mes= hora.getMonth()+1,
+    anio= hora.getFullYear(),
+    diaSemana=hora.getDay();;
+
+    let fecha = `${dia}-${mes}-${anio}`
+
     const REALIZADO = realizado ? check : uncheck
     const LINE = realizado ? lineThrough : ""
 
     const elemento =`<li id= "elemento" >
                     <i class="far ${REALIZADO}" data="realizado" id="${id}"></i>
                     <p class="text ${LINE}">${tarea} </p>
-                    <i class="fas fa-trash de" data="eliminado" id="${id}"></i>
+                    <p class="text"> ${horario} </p>
+                    <p class="text">${fecha} </p>
+                    <i class="fas fa-trash de alinearAlFinal" data="eliminado" id="${id}"></i>
                     </li>`
     lista.insertAdjacentHTML("beforeend", elemento)
 }
