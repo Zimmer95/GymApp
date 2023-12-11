@@ -7,7 +7,7 @@ check = "fa-check-circle",
 uncheck = "fa-circle",
 lineThrough = "line-through";
 
-let id=0
+let id
 let LIST
 
 
@@ -71,10 +71,10 @@ botonEnter.addEventListener('click', () => {
             realizado:false,
             eliminado:false
         })
+        localStorage.setItem('rutinas', JSON.stringify(LIST))
+        input.value=''
+        id++
     }
-    localStorage.setItem('TODO', JSON.stringify(LIST))
-    input.value=''
-    id++
 })
 
 document.addEventListener("keyup", function(event){
@@ -88,10 +88,10 @@ document.addEventListener("keyup", function(event){
             realizado:false,
             eliminado:false
         })
-    }
-    localStorage.setItem('TODO', JSON.stringify(LIST))
+    localStorage.setItem('rutinas', JSON.stringify(LIST))
     input.value=''
     id++
+    }
     }
 })
 
@@ -101,10 +101,11 @@ lista.addEventListener('click', function(event){
 
     if(elementData === "realizado"){
         tareaRealizada(element)
+        localStorage.setItem('rutinas', JSON.stringify(LIST))
     }else if (elementData === "eliminado"){
         tareaEliminada(element)
+        localStorage.setItem('rutinas', JSON.stringify(LIST))
     }
-    localStorage.setItem('TODO', JSON.stringify(LIST))
 })
 
 
@@ -114,7 +115,7 @@ setInterval(() =>{
 
 //obener datos del local storage
 
-let data = localStorage.getItem('TODO')
+let data = localStorage.getItem('rutinas')
 if(data){
     LIST=JSON.parse(data)
     id = LIST.length
